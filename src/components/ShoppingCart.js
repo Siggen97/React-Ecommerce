@@ -26,10 +26,10 @@ function ShoppingCart() {
                                     <p>{item.title}</p>
                                     <p>{item.quantity} x ${item.price ? item.price.toFixed(2) : 'N/A'}</p>
                                 </div>
-                                <div>
-                                    <button onClick={() => increaseCartQuantity(item)}>+</button>
-                                    <button onClick={() => decreaseCartQuantity(item.id)}>-</button>
-                                    <button onClick={() => removeItemFromCart(item.id)}>Remove</button>
+                                <div className='cartBtn'>
+                                    <button className='btn btn-primary' onClick={() => decreaseCartQuantity(item.id)}>-</button>
+                                    <button className='btn btn-primary' onClick={() => increaseCartQuantity(item)}>+</button>
+                                    <button className='btn btn-danger' onClick={() => removeItemFromCart(item.id)}>Remove</button>
                                 </div>
                             </div>
                         </Dropdown.Item>
@@ -38,7 +38,7 @@ function ShoppingCart() {
                     <Dropdown.Item>
                         <div>Total: ${cartTotal.toFixed(2)}</div>
                     </Dropdown.Item>
-                    <Dropdown.Item as={Link} to="/checkout">Go to Checkout</Dropdown.Item>
+                    <Dropdown.Item as={Link} to="/checkout"> <button className='btn btn-dark'>Go to Checkout</button></Dropdown.Item>
                 </Dropdown.Menu>
             </DropdownButton>
         </div>
