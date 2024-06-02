@@ -30,7 +30,7 @@ function Product({ product }) {
                 )}
                 <div className='mt-auto'>
                     {quantity === 0 ? (
-                        <button className='btn btn-primary w-100' onClick={() => increaseCartQuantity(product.id)}>+ Add To Cart</button>
+                        <button className='btn btn-primary w-100' onClick={() => increaseCartQuantity(product)}>+ Add To Cart</button>
                     ) : (
                         <div className='d-flex align-items-center flex-column' style={{ gap: '0.5rem' }}>
                             <div className='d-flex align-items-center justify-content-center' style={{ gap: '0.5rem' }}>
@@ -38,7 +38,7 @@ function Product({ product }) {
                                 <div>
                                     <span className='fs-3'>{quantity}</span> <br />Added
                                 </div>
-                                <button className='btn btn-primary' onClick={() => increaseCartQuantity(product.id)}>+</button>
+                                <button className='btn btn-primary' onClick={() => increaseCartQuantity(product)}>+</button>
                             </div>
                             <button className='btn btn-danger w-100' onClick={() => removeItemFromCart(product.id)}>Remove</button>
                         </div>

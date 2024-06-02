@@ -6,10 +6,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 function ShoppingCart() {
-    const { cartItems, increaseCartQuantity, decreaseCartQuantity, removeItemFromCart, cartTotal, toggleCart, isOpen } = useShoppingCart();
+    const { cartItems, increaseCartQuantity, decreaseCartQuantity, removeItemFromCart, cartTotal, isOpen, toggleCart, openCart, closeCart } = useShoppingCart();
 
     return (
-        <div className="shopping-cart" onMouseEnter={toggleCart} onMouseLeave={toggleCart}>
+        <div className="shopping-cart" onMouseEnter={openCart} onMouseLeave={closeCart}>
             <DropdownButton
                 id="dropdown-basic-button"
                 title={<FontAwesomeIcon icon={faShoppingCart} />}
@@ -27,7 +27,7 @@ function ShoppingCart() {
                                     <p>{item.quantity} x ${item.price ? item.price.toFixed(2) : 'N/A'}</p>
                                 </div>
                                 <div>
-                                    <button onClick={() => increaseCartQuantity(item.id)}>+</button>
+                                    <button onClick={() => increaseCartQuantity(item)}>+</button>
                                     <button onClick={() => decreaseCartQuantity(item.id)}>-</button>
                                     <button onClick={() => removeItemFromCart(item.id)}>Remove</button>
                                 </div>

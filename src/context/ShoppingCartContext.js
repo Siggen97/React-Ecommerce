@@ -21,15 +21,15 @@ export function ShoppingCartProvider({ children }) {
         return item ? item.quantity : 0;
     }
 
-    function increaseCartQuantity(id) {
+    function increaseCartQuantity(product) {
         setCartItems(prevItems => {
-            const existingItem = prevItems.find(item => item.id === id);
+            const existingItem = prevItems.find(item => item.id === product.id);
             if (existingItem) {
                 return prevItems.map(item =>
-                    item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+                    item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
                 );
             } else {
-                return [...prevItems, { id, quantity: 1 }];
+                return [...prevItems, { ...product, quantity: 1 }];
             }
         });
     }
