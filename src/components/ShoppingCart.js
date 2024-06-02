@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useShoppingCart } from '../context/ShoppingCartContext';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
@@ -6,26 +6,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 function ShoppingCart() {
-    const [showDropdown, setShowDropdown] = useState(false);
-    const { cartItems, getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeItemFromCart } = useShoppingCart();
-
-    const totalPrice = cartItems.reduce((total, item) => total + (item.price ? item.price * item.quantity : 0), 0);
+    const { cartItems, increaseCartQuantity, decreaseCartQuantity, removeItemFromCart, cartTotal, toggleCart, isOpen } = useShoppingCart();
 
     return (
-        <div className="shopping-cart">
+        <div className="shopping-cart" onMouseEnter={toggleCart} onMouseLeave={toggleCart}>
             <DropdownButton
                 id="dropdown-basic-button"
                 title={<FontAwesomeIcon icon={faShoppingCart} />}
-                onMouseEnter={() => setShowDropdown(true)}
-                onMouseLeave={() => setShowDropdown(false)}
-                show={showDropdown}
+                show={isOpen}
             >
                 <Dropdown.Menu>
                     {cartItems.map(item => (
                         <Dropdown.Item key={item.id}>
                             <div className="cart-item">
                                 {item.image && (
-                                    <img src={item.image.url} alt={item.image.alt || 'Product Image'} style={{ width: '50px', height: '50px' }}  />
+                                    <img src={item.image.url} alt={item.image.alt || 'Product Image'} style={{ width: '50px', height: '50px' }} />
                                 )}
                                 <div>
                                     <p>{item.title}</p>
@@ -41,7 +36,7 @@ function ShoppingCart() {
                     ))}
                     <Dropdown.Divider />
                     <Dropdown.Item>
-                        <div>Total: ${totalPrice.toFixed(2)}</div>
+                        <div>Total: ${cartTotal.toFixed(2)}</div>
                     </Dropdown.Item>
                     <Dropdown.Item as={Link} to="/checkout">Go to Checkout</Dropdown.Item>
                 </Dropdown.Menu>
