@@ -13,8 +13,7 @@ export function Navbar() {
                 <CustomLink to="/">Home</CustomLink>
                 <CustomLink to="/products">Products</CustomLink>
                 <CustomLink to="/contact">Contact</CustomLink>
-
-                <ShoppingCart className="shopping-cart-icon" />
+            <ShoppingCart className="shopping-cart-icon" />
             </ul>
         </nav>
     );

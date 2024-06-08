@@ -151,9 +151,36 @@ main {
   font-weight: bold;
 }
 .shopping-cart {
-  margin: 10px;
-  padding: 0.30rem;
+  margin: auto;
+  padding: 14px;
 }
-.cartBtn .btn {
-  margin: 2px;
+.checkout{
+  display: flex;
+  justify-content: space-around;
+  .personal-info form {
+    display: flex;
+    flex-direction: column;
+    align-items: first baseline;
+    gap: 1rem;
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+  }
+}
+.checkout-cart-purchase {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+}
+.item-link {
+  text-decoration: none;
 }

@@ -6,6 +6,8 @@ import Products from "./pages/Products";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Checkout from "./pages/Checkout"; 
+import CheckoutSuccess from './pages/CheckoutSuccess';
+import SingleProduct from "./pages/SingleProduct";
 import { ShoppingCartProvider } from './context/ShoppingCartContext';
 
 
@@ -45,6 +47,9 @@ function App() {
                   <Route path="/products" element={<Products products={products} />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/checkout" element={<Checkout />} />
+                  <Route path="/checkoutsuccess" element={<CheckoutSuccess />} />
+
+                  <Route path="/product/:id" element={<SingleProduct />} /> 
               </Routes>
           </div>
           </Layout>
