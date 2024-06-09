@@ -47,7 +47,7 @@ const SingleProduct = () => {
 
     const { title, description, price, discountedPrice, image } = product;
     const quantity = getItemQuantity(product.id);
-    const finalPrice = discountedPrice ? discountedPrice : price;
+    
 
     return (
         <div className="single-product-page">
