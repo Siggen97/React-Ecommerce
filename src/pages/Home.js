@@ -20,6 +20,8 @@ function Home({ products }) {
             <h3>Featured Products</h3>
             <SearchBar onSearch={handleSearch} />
             <Products products={filteredProducts} />
+            <Products products={products} />
+            
         </div>
     );
 }
