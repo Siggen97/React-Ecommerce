@@ -1,12 +1,26 @@
 // src/pages/ProductsPage.js
-import React from 'react';
-import Products from '../components/Products'; // Adjust the import path based on your project structure
+import React, { useState } from 'react';
+import Products from '../components/Products';
+import SearchBar from '../components/SearchBar';
 
 function ProductsPage({ products }) {
+    const [filteredProducts, setFilteredProducts] = useState(products);
+
+    const handleSearch = (query) => {
+        const lowercasedQuery = query.toLowerCase();
+        const filtered = products.filter(product =>
+            product.title.toLowerCase().includes(lowercasedQuery) ||
+            product.description.toLowerCase().includes(lowercasedQuery) ||
+            product.tags.some(tag => tag.toLowerCase().includes(lowercasedQuery))
+        );
+        setFilteredProducts(filtered);
+    };
+
     return (
         <div>
             <h3>All Products</h3>
-            <Products products={products} />
+            <SearchBar onSearch={handleSearch} />
+            <Products products={filteredProducts} />
         </div>
     );
 }
