@@ -42,7 +42,7 @@ Hosted on Netlify
 1. Clone the repo:
 
 ```bash
-git clone https://github.com/Siggen97/Semester-Project-2.git
+git clone https://github.com/Siggen97/React-Ecommerce.git
 ```
 
 2. Install the dependencies:
