@@ -1,6 +1,7 @@
 # Ecommerce site
 
-![Ludvigs Shop] (https://i.imghippo.com/files/qday7907fQ.png)
+![image] (https://i.imghippo.com/files/qday7907fQ.png)
+(https://i.imghippo.com/files/qday7907fQ.png)
 
 
 ## Description
